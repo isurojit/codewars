@@ -17,4 +17,19 @@ duplicateCount("aabBcde"), 2,"should ignore case"
 duplicateCount("Indivisibility"), 1
 */
 
-const duplicateCount = (text) => {};
+const duplicateCount = (text) => {
+  let userInput = text.toLowerCase();
+  let newTextArr = userInput.split("");
+  let counter = 0;
+  for (let i = 0; i < newTextArr.length; i++) {
+    if (
+      newTextArr.indexOf(newTextArr[i]) !==
+      newTextArr.lastIndexOf(newTextArr[i])
+    ) {
+      counter++;
+    }
+  }
+  return counter;
+};
+
+console.log(duplicateCount("aabbcde"));
